@@ -17,6 +17,7 @@ import {
   DropdownMenu,
   DropdownItem,
   Switch,
+  NavbarItem,
 } from "@nextui-org/react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -92,38 +93,44 @@ export default function RootLayout({
               </Link>
             </NavbarBrand>
             <NavbarContent justify="end">
-              <Link href="/calendar">Submit New Event</Link>
-              <Dropdown
-                showArrow
-                classNames={{
-                  base: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-secondary-50 dark:to-black",
-                  arrow: "bg-secondary",
-                }}
-              >
-                <DropdownTrigger>
-                  <Button variant="shadow">Groups</Button>
-                </DropdownTrigger>
-                <DropdownMenu variant="shadow" aria-label="Static Actions">
-                  {Object.keys(organizationsStore).filter(e => !e.match("One-Off-Events")).map((e, i) => (
-                    <DropdownItem
-                      key={i}
-                      startContent={organizationsStore[e]?.icon}
-                    >
-                      <Link className="w-full" href={`/${e}`}>
-                        {e.replace(/-/g, " ")}
-                      </Link>
-                    </DropdownItem>
-                  ))}
-                </DropdownMenu>
-              </Dropdown>
-              <Switch
-                size="sm"
-                isSelected={theme === "light"}
-                startContent={<p>🌞</p>}
-                endContent={<p>🌒</p>}
-                aria-label="Theme switch"
-                onChange={changeTheme}
-              />
+              <NavbarItem>
+                <Link href="/calendar">Submit New Event</Link>
+              </NavbarItem>
+              <NavbarItem>
+                <Dropdown
+                  showArrow
+                  classNames={{
+                    base: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-secondary-50 dark:to-black",
+                    arrow: "bg-secondary",
+                  }}
+                >
+                  <DropdownTrigger>
+                    <Button variant="shadow">Groups</Button>
+                  </DropdownTrigger>
+                  <DropdownMenu variant="shadow" aria-label="Static Actions">
+                    {Object.keys(organizationsStore).filter(e => !e.match("One-Off-Events")).map((e, i) => (
+                      <DropdownItem
+                        key={i}
+                        startContent={organizationsStore[e]?.icon}
+                      >
+                        <Link className="w-full" href={`/${e}`}>
+                          {e.replace(/-/g, " ")}
+                        </Link>
+                      </DropdownItem>
+                    ))}
+                  </DropdownMenu>
+                </Dropdown>
+              </NavbarItem>
+              <NavbarItem>
+                <Switch
+                  size="sm"
+                  isSelected={theme === "light"}
+                  startContent={<p>🌞</p>}
+                  endContent={<p>🌒</p>}
+                  aria-label="Theme switch"
+                  onChange={changeTheme}
+                />
+              </NavbarItem>
             </NavbarContent>
           </Navbar>
           {children}
