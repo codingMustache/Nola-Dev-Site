@@ -127,7 +127,7 @@ export default function RootLayout({
                   isSelected={theme === "light"}
                   startContent={<p>🌞</p>}
                   endContent={<p>🌒</p>}
-                  aria-label="Theme switch"
+                  aria-label="Theme-Switch"
                   onChange={changeTheme}
                 />
               </NavbarItem>
