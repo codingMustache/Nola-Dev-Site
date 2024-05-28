@@ -98,6 +98,7 @@ export default function EventForm() {
                   className="max-w-fit"
                   type="date"
                   description="Date"
+                  aria-label="Event-Date"
                   labelPlacement="outside"
                   name="date"
                 />
@@ -105,6 +106,7 @@ export default function EventForm() {
                   className="max-w-fit"
                   type="time"
                   description="Start Time"
+                  aria-label="Event-Start-Time"
                   labelPlacement="outside"
                   name="startTime"
                 />
@@ -112,6 +114,7 @@ export default function EventForm() {
                   className="max-w-fit"
                   type="time"
                   description="End Time"
+                  aria-label="Event-End-Time"
                   labelPlacement="outside"
                   name="endTime"
                 />

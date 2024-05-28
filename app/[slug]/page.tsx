@@ -38,7 +38,7 @@ export default function Group() {
             isExternal
             isBlock
             showAnchorIcon
-            color="secondary"
+            color="primary"
             size="sm"
             href={organizations[group]?.org_url}
             target="_blank"
